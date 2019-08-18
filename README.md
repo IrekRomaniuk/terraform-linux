@@ -17,7 +17,7 @@ module "azlinuxvm" {
   source = "github.com/IrekRomaniuk/terraform-linux.git"
 
   provider = azurerm.net
-  name_prefix    = "lin"
+  prefix    = "lin"
   hostname       = "ubuntu-server"
   rg = "Spoke-EastUS-Prod-Hub"
   vnet = "vnet-eastus-nonprod-net"
