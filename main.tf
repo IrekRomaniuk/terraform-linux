@@ -43,6 +43,7 @@ resource "azurerm_virtual_machine" "vm" {
     connection {
       user     = "${var.admin_username}"
       password = "${data.azurerm_key_vault_secret.secret.value}"
+      host = "${azurerm_network_interface.nic.private_ip_address}"
     }
 
     inline = [
