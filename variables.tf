@@ -2,17 +2,13 @@ variable "prefix" {
   description = "The Prefix used for all resources in this example"
 }
 
-variable "location" {
+/*variable "location" {
   description = "The Azure Region in which the resources in this example should exist"
-}
+}*/
 
 # required variables
 variable "hostname" {
   description = "name of the machine to create"
-}
-
-variable "name_prefix" {
-  description = "unique part of the name to give to resources"
 }
 
 variable "ssh_public_key" {

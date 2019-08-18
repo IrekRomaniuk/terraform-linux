@@ -27,7 +27,7 @@ resource "azurerm_network_interface" "nic" {
   #network_security_group_id = "${azurerm_network_security_group.nsg.id}"
 
   ip_configuration {
-    name                          = "${var.name_prefix}ipconfig"
+    name                          = "${var.prefix}ipconfig"
     subnet_id                     = "${data.azurerm_subnet.subnet.id}"
     private_ip_address_allocation = "Dynamic"
     #private_ip_address            = "${var.ip_address}"
@@ -42,7 +42,7 @@ data "azurerm_storage_account" "store" {
 }
 
 resource "azurerm_storage_container" "container" {
-  name                  = "${var.name_prefix}-vhds"
+  name                  = "${var.prefix}-vhds"
   resource_group_name   = "${var.rg_sakv}"
   storage_account_name  = "${var.store}"
   container_access_type = "private"
@@ -61,13 +61,13 @@ data "azurerm_key_vault_secret" "secret" {
 
 /*
 resource "azurerm_network_security_group" "nsg" {
-  name                = "${var.name_prefix}nsg"
+  name                = "${var.prefix}nsg"
   location            = "${var.location}"
   resource_group_name = "${azurerm_resource_group.rg.name}"
 }
 
 resource "azurerm_network_security_rule" "rulessh" {
-  name                        = "${var.name_prefix}rulessh"
+  name                        = "${var.prefix}rulessh"
   priority                    = 100
   direction                   = "Inbound"
   access                      = "Allow"

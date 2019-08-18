@@ -23,8 +23,8 @@ module "azlinuxvm" {
   vnet = "vnet-eastus-nonprod-net"
   subnet = "default"
   rg_sakv = "net-spoke-eastus-prod-automation"
-  sa = "sta360spokeneteastus"
-  kv = "kvt-a360-net-east-spoke"
+  store = "sta360spokeneteastus"
+  vault = "kvt-a360-net-east-spoke"
   secret = "password"
   ssh_public_key = "${file("/home/docker/.ssh/id_rsa.pub")}"
 }
