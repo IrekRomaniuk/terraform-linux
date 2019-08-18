@@ -38,7 +38,7 @@ variable "storage_account_type" {
 # B1ls - smallest
 variable "vm_size" {
   description = "size of the vm to create"
-  default     = "B1ms" 
+  default     = "Standard_B1ms" 
 }
 
 variable "image_publisher" {
