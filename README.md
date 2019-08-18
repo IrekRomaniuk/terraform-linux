@@ -10,6 +10,7 @@ Looks also [here](https://github.com/trstringer/terraform-azure-linux-vm)
 
 Assuming key vault and storage account in same resource group and subscription (can be different than rg of vm)
 
+```
 module "azlinuxvm" {
   source = "github.com/IrekRomaniuk/terraform-linux.git"
 
@@ -24,3 +25,4 @@ module "azlinuxvm" {
   kv = "kvt-a360-net-east-spoke"
   ssh_public_key = "${file("/home/docker/.ssh/id_rsa.pub")}"
 }
+```
