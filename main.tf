@@ -34,10 +34,10 @@ resource "azurerm_virtual_machine" "vm" {
     disable_password_authentication = "${var.disable_password_authentication}"
  
   
-  ssh_keys = [{
+  ssh_keys = {
       path     = "/home/${var.admin_username}/.ssh/authorized_keys"
       key_data = "${var.ssh_public_key}"
-    }]
+    }
  }
   provisioner "remote-exec" {
     connection {
