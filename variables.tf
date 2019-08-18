@@ -19,17 +19,13 @@ variable "ssh_public_key" {
   description = "public key for ssh access"
 }
 
-variable "sa" {
+variable "secret" {}
 
-}
+variable "store" {}
 
-variable "kv" {}
+variable "vault" {}
 
 variable "rg_sakv" {}
-
-variable "container" {
-  
-}
 
 variable "rg" {}
 

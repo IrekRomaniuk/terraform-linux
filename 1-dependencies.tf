@@ -4,26 +4,26 @@ locals {
 
 data "azurerm_resource_group" "rg" {
   name     = "${var.rg}"
-  location = "${var.location}"
+  #location = "${var.location}"
 }
 
 data "azurerm_virtual_network" "vnet" {
   name                = "${var.vnet}"
-  location            = "${azurerm_resource_group.rg.location}"
-  resource_group_name = "${azurerm_resource_group.rg.name}"
+  #location            = "${data.azurerm_resource_group.rg.location}"
+  resource_group_name = "${data.azurerm_resource_group.rg.name}"
 }
 
 data "azurerm_subnet" "subnet" {
   name                 = "${var.subnet}"
-  resource_group_name  = "${azurerm_resource_group.rg.name}"
-  virtual_network_name = "${azurerm_virtual_network.vnet.name}"
+  resource_group_name  = "${data.azurerm_resource_group.rg.name}"
+  virtual_network_name = "${data.azurerm_virtual_network.vnet.name}"
 }
 
 
 resource "azurerm_network_interface" "nic" {
   name                = "${var.prefix}-nic"
-  location            = "${azurerm_resource_group.example.location}"
-  resource_group_name = "${azurerm_resource_group.example.name}"
+  location            = "${data.azurerm_resource_group.rg.location}"
+  resource_group_name = "${data.azurerm_resource_group.rg.name}"
   #network_security_group_id = "${azurerm_network_security_group.nsg.id}"
 
   ip_configuration {
@@ -35,21 +35,21 @@ resource "azurerm_network_interface" "nic" {
   }
 }
 
-resource "azurerm_storage_account" "sa" {
-  name                = "${var.sa}"
-  location            = "${var.location}"
-  resource_group_name = "${var.rg_sa}"
+data "azurerm_storage_account" "store" {
+  name                = "${var.store}"
+  resource_group_name = "${var.rg_sakv}"
+  #account_type        = "${var.storage_account_type}"
 }
 
 resource "azurerm_storage_container" "container" {
   name                  = "${var.name_prefix}-vhds"
-  resource_group_name   = "${var.rg_sa}"
-  storage_account_name  = "${var.sa}"
+  resource_group_name   = "${var.rg_sakv}"
+  storage_account_name  = "${var.store}"
   container_access_type = "private"
 }
 
 data "azurerm_key_vault" "vault" {
-  name                        = "${var.kv}"
+  name                        = "${var.vault}"
   resource_group_name         = "${var.rg_sakv}"
 }    
 
