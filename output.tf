@@ -3,7 +3,7 @@ output "admin_username_password" {
 }
 
 output "secret" {
-    value = "${data.azurerm_key_vault_secret}"
+    value = "${data.azurerm_key_vault_secret.secret}"
 }
 
 output "ip_address" {

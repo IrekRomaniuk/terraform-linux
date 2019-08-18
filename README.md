@@ -27,5 +27,9 @@ module "azlinuxvm" {
   vault = "kvt-a360-net-east-spoke"
   secret = "password"
   ssh_public_key = "${file("/home/docker/.ssh/id_rsa.pub")}"
+
+  providers = {
+    azurerm = azurerm.core-prod
+  }
 }
 ```

@@ -63,7 +63,7 @@ variable "image_version" {
 
 variable "admin_username" {
   description = "administrator user name"
-  default     = "azuresuer"
+  default     = "docker"
 }
 
 /*variable "admin_password" {
@@ -73,5 +73,5 @@ variable "admin_username" {
 
 variable "disable_password_authentication" {
   description = "toggle for password auth (recommended to keep disabled)"
-  default     = true
+  default     = false
 }
