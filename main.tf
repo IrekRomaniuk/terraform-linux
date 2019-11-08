@@ -29,6 +29,7 @@ resource "azurerm_virtual_machine" "vm" {
     caching           = "ReadWrite"
     create_option     = "Empty"
     disk_size_gb      = "${var.data_size}"
+    lun = 0
     #managed_disk_type = "StandardSSD_LRS"
     vhd_uri       = "${data.azurerm_storage_account.store.primary_blob_endpoint}${azurerm_storage_container.container.name}/${var.prefix}datadisk.vhd"
   }
