@@ -59,7 +59,7 @@ resource "azurerm_virtual_machine" "vm" {
     }
 
     inline = [
-      "ls -la",
+      "hostnamectl",
     ]
   }
 }
