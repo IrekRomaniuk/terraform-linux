@@ -29,7 +29,7 @@ variable "vnet" {}
 
 variable "subnet" {}
 
-variable "private_ip_address" {}
+variable "ip_address" {}
 
 variable "data_size" {}
 
