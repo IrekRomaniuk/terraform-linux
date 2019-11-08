@@ -35,6 +35,8 @@ variable "ip_address" {}
 
 variable "data_size" {}
 
+variable "os_size" {}
+
 # optional variables
 
 variable "storage_account_type" {

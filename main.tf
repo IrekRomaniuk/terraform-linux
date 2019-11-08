@@ -20,8 +20,9 @@ resource "azurerm_virtual_machine" "vm" {
     name              = "${var.prefix}-osdisk"
     caching           = "ReadWrite"
     create_option     = "FromImage"
-    #managed_disk_type = "StandardSSD_LRS"
-    vhd_uri       = "${data.azurerm_storage_account.store.primary_blob_endpoint}${azurerm_storage_container.container.name}/${var.prefix}osdisk.vhd"
+    disk_size_gb = "${var.os_size}"
+    managed_disk_type = "${var.storage_account_type}" 
+    #vhd_uri       = "${data.azurerm_storage_account.store.primary_blob_endpoint}${azurerm_storage_container.container.name}/${var.prefix}osdisk.vhd"
   }
 
   storage_data_disk {
@@ -30,8 +31,8 @@ resource "azurerm_virtual_machine" "vm" {
     create_option     = "Empty"
     disk_size_gb      = "${var.data_size}"
     lun = 0
-    #managed_disk_type = "StandardSSD_LRS"
-    vhd_uri       = "${data.azurerm_storage_account.store.primary_blob_endpoint}${azurerm_storage_container.container.name}/${var.prefix}datadisk.vhd"
+    managed_disk_type = "${var.storage_account_type}" 
+    #vhd_uri       = "${data.azurerm_storage_account.store.primary_blob_endpoint}${azurerm_storage_container.container.name}/${var.prefix}datadisk.vhd"
   }
 
   os_profile {
