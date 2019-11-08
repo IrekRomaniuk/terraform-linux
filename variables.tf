@@ -23,7 +23,7 @@ variable "vault" {}
 
 variable "rg_sakv" {}
 
-variable "rg_vn" {}
+variable "rg_vnet" {}
 
 variable "rg" {}
 
