@@ -30,7 +30,7 @@ resource "azurerm_network_interface" "nic" {
     name                          = "${var.prefix}ipconfig"
     subnet_id                     = "${data.azurerm_subnet.subnet.id}"
     private_ip_address_allocation = "Dynamic"
-    #private_ip_address            = "${var.ip_address}"
+    private_ip_address            = "${var.ip_address}"
     public_ip_address_id          = ""
   }
 }

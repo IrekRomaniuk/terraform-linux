@@ -29,6 +29,10 @@ variable "vnet" {}
 
 variable "subnet" {}
 
+variable "private_ip_address" {}
+
+variable "data_size" {}
+
 # optional variables
 
 variable "storage_account_type" {

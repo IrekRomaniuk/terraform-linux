@@ -24,6 +24,15 @@ resource "azurerm_virtual_machine" "vm" {
     vhd_uri       = "${data.azurerm_storage_account.store.primary_blob_endpoint}${azurerm_storage_container.container.name}/${var.prefix}osdisk.vhd"
   }
 
+  storage_os_disk {
+    name              = "${var.prefix}-datadisk"
+    caching           = "ReadWrite"
+    create_option     = "Empty"
+    disk_size_gb      = "${var.data_size}"
+    #managed_disk_type = "StandardSSD_LRS"
+    vhd_uri       = "${data.azurerm_storage_account.store.primary_blob_endpoint}${azurerm_storage_container.container.name}/${var.prefix}datadisk.vhd"
+  }
+
   os_profile {
     computer_name  = "${local.virtual_machine_name}"
     admin_username = "${var.admin_username}"
