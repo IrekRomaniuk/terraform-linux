@@ -10,13 +10,15 @@ data "azurerm_resource_group" "rg" {
 data "azurerm_virtual_network" "vnet" {
   name                = "${var.vnet}"
   #location            = "${data.azurerm_resource_group.rg.location}"
-  resource_group_name = "${data.azurerm_resource_group.rg.name}"
+  #resource_group_name = "${data.azurerm_resource_group.rg.name}"
+  resource_group_name   = "${var.rg_vn}"
 }
 
 data "azurerm_subnet" "subnet" {
   name                 = "${var.subnet}"
-  resource_group_name  = "${data.azurerm_resource_group.rg.name}"
+  #resource_group_name  = "${data.azurerm_resource_group.rg.name}"
   virtual_network_name = "${data.azurerm_virtual_network.vnet.name}"
+  resource_group_name   = "${var.rg_vn}"
 }
 
 
