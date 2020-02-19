@@ -83,3 +83,7 @@ variable "disable_password_authentication" {
   description = "toggle for password auth (recommended to keep disabled)"
   default     = false
 }
+
+variable "plan_name" {}
+variable "plan_publisher" {}
+variable "plan_product" {}
