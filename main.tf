@@ -16,11 +16,11 @@ resource "azurerm_virtual_machine" "vm" {
     version   = "${var.image_version}"
   }
 
-  plan {
+  /*plan {
     name = "${var.plan_name}"
     publisher = "${var.plan_publisher}"
     product = "${var.plan_product}"
-  }
+  }*/
 
   storage_os_disk {
     name              = "${var.prefix}-osdisk"
@@ -31,7 +31,7 @@ resource "azurerm_virtual_machine" "vm" {
     #vhd_uri       = "${data.azurerm_storage_account.store.primary_blob_endpoint}${azurerm_storage_container.container.name}/${var.prefix}osdisk.vhd"
   }
 
-  storage_data_disk {
+  /*storage_data_disk {
     name              = "${var.prefix}-datadisk"
     caching           = "ReadWrite"
     create_option     = "Empty"
@@ -39,7 +39,7 @@ resource "azurerm_virtual_machine" "vm" {
     lun = 0
     managed_disk_type = "${var.storage_account_type}" 
     #vhd_uri       = "${data.azurerm_storage_account.store.primary_blob_endpoint}${azurerm_storage_container.container.name}/${var.prefix}datadisk.vhd"
-  }
+  }*/
 
   os_profile {
     computer_name  = "${local.virtual_machine_name}"
