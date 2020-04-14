@@ -43,12 +43,12 @@ data "azurerm_storage_account" "store" {
   #account_type        = "${var.storage_account_type}"
 }
 
-resource "azurerm_storage_container" "container" {
+/*resource "azurerm_storage_container" "container" {
   name                  = "${var.prefix}-vhds"
   resource_group_name   = "${var.rg_sakv}"
   storage_account_name  = "${var.store}"
   container_access_type = "private"
-}
+}*/
 
 data "azurerm_key_vault" "vault" {
   name                        = "${var.vault}"
