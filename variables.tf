@@ -84,6 +84,6 @@ variable "disable_password_authentication" {
   default     = false
 }
 
-/*variable "plan_name" {}
+variable "plan_name" {}
 variable "plan_publisher" {}
-variable "plan_product" {}*/
+variable "plan_product" {}

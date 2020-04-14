@@ -16,11 +16,11 @@ resource "azurerm_virtual_machine" "vm" {
     version   = "${var.image_version}"
   }
 
-  /*plan {
+  plan {
     name = "${var.plan_name}"
     publisher = "${var.plan_publisher}"
     product = "${var.plan_product}"
-  }*/
+  }
 
   storage_os_disk {
     name              = "${var.prefix}-osdisk"
